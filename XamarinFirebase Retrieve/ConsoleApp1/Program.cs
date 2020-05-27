@@ -33,9 +33,29 @@ namespace ConsoleApp1
             Console.WriteLine("ok");
             Console.ReadKey();
 
+            bool IsValidEmail(string email)
+            {
+                try
+                {
+                    var addr = new System.Net.Mail.MailAddress(email);
+                    return addr.Address == email;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
 
-            Console.WriteLine("\n\nNome para o novo receita: ");
+            Console.WriteLine("\n\nNome para o novo email: ");
             string entry = Console.ReadLine();
+
+            if (IsValidEmail(entry))
+                Console.WriteLine("TA FIXE :)");
+            else
+                Console.Write("Ta Horrivel");
+
+            Console.WriteLine("---------------------------------------------------------");
+            Console.ReadKey();
 
             int IDUser = 0;
 
@@ -52,29 +72,35 @@ namespace ConsoleApp1
                 if (id.Object.Id == IDUser)
                     IDUser++;
 
-
             }
 
+            bool? accountAvailable = null;
+
+            //verificaoca de Utilizador
             foreach (var id in idCount)
             {
-
-                //verificaoca de Utilizador
                 if (id.Object.Email != entry)
-                {
-                    Console.WriteLine("Erro");
-                    var user = await firebase
-                    .Child("Users")
-                    .PostAsync(new Users()
-                    {
-                        Email = entry,
-                        Id = IDUser,
-                    });
-                    Console.WriteLine($"{user.Object.Email} ---"); break;
-                }
+                    accountAvailable = true;
                 else
+                    accountAvailable = false;
+            }
+
+            //verificaoca de Utilizador
+            if (accountAvailable == true)
+            {
+                Console.WriteLine("Erro");
+                var user = await firebase
+                .Child("Users")
+                .PostAsync(new Users()
                 {
-                    Console.WriteLine("Erro"); break;
-                }
+                    Email = entry,
+                    Id = IDUser,
+                });
+                Console.WriteLine($"{user.Object.Email} ---");
+            }
+            else
+            {
+                Console.WriteLine("Erro");
             }
 
             Console.ReadKey();
