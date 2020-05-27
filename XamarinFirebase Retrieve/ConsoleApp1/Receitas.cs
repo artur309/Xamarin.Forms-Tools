@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Receitas
+    public class Receitas
     {
         public string NomeReceita { get; set; }
         public string Ingredientes { get; set; }
