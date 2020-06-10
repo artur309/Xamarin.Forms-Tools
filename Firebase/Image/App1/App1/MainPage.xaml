@@ -9,23 +9,21 @@
     <StackLayout>
         <StackLayout>
             <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
-                <Image x:Name="imgBanner" Source="banner.png" ></Image>
-                <Image Margin="0,0,0,10" HeightRequest="100" Source="firebase.png" ></Image>
-                <Label Margin="0,0,0,10" Text="Firebase Storage" FontAttributes="Bold" FontSize="Large" TextColor="Gray" HorizontalTextAlignment="Center" ></Label>
-                <Image x:Name="imgChoosed" HeightRequest="150"></Image>
-                <Entry x:Name="txtFileName" Placeholder="Enter FileName"></Entry>
+                <Image x:Name="imgBanner" Source="banner.png" />
+                <Image Margin="0,0,0,10" HeightRequest="100" Source="firebase.png" />
+                <Label Margin="0,0,0,10" Text="Firebase Storage" FontAttributes="Bold" FontSize="Large" TextColor="Gray" HorizontalTextAlignment="Center" />
+                <Image x:Name="imgChoosed" HeightRequest="150" />
+                <Entry x:Name="txtFileName" Placeholder="Enter FileName" />
                 <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Button x:Name="btnPick" WidthRequest="200" Text="Pick" Clicked="BtnPick_Clicked"/>
+                    <Button x:Name="btnPick" WidthRequest="200" Text="Pick" Clicked="BtnPick_Clicked" />
                     <Button x:Name="btnUpload" WidthRequest="200" Text="Upload" Clicked="BtnUpload_Clicked" />
                 </StackLayout>
                 <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Button x:Name="btnDownload" WidthRequest="200" Text="Download" Clicked="BtnDownload_Clicked" />
                     <Button x:Name="btnDelete" WidthRequest="200" Text="Delete" Clicked="BtnDelete_Clicked" />
                 </StackLayout>
-                <Label x:Name="lblPath"></Label>
-
+                <Label x:Name="lblPath"/>
             </StackLayout>
         </StackLayout>
     </StackLayout>
-
 </ContentPage>
