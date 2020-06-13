@@ -1,28 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Plugin.Media;
+using Plugin.Media.Abstractions;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using Xamarin.Forms;
-using Firebase.Storage;
-using Firebase.Database;
-using Plugin.Media.Abstractions;
-using System.IO;
-using Plugin.Media;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
-using System.Diagnostics;
-using System.IO;
 
 namespace App1
 {
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        FirebaseStorageHelper firebaseStorageHelper = new FirebaseStorageHelper();
-        MediaFile file;
+        private FirebaseStorageHelper firebaseStorageHelper = new FirebaseStorageHelper();
+        private MediaFile file;
 
         public MainPage()
         {
@@ -61,7 +51,7 @@ namespace App1
         {
             await firebaseStorageHelper.UploadFile(file.GetStream(), Path.GetFileName(file.Path));
         }
-        
+
         private async void BtnDelete_Clicked(object sender, EventArgs e)
         {
             await firebaseStorageHelper.DeleteFile(txtFileName.Text);
@@ -77,7 +67,6 @@ namespace App1
                 lblPath.Text = path;
                 await DisplayAlert("Success", path, "OK");
             }
-
         }
     }
 }
